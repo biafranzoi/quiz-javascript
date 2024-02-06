@@ -1,4 +1,4 @@
-// array de perguntas
+// estrutura do array de perguntas
 // const perguntas = [ //array 0
 //     {
 //         pergunta: "Pergunta 01",
@@ -109,27 +109,37 @@ const perguntas = [
     }
 ];
 
+// elemento HTML que representa o quiz
 const quiz = document.querySelector('#quiz')
+
+// elemento HTML que contém o template
 const template = document.querySelector('template')
 
-// loop ou laço de repetição
+// loop ou laço de repetição para cada pergunta no array
 for(const item of perguntas) {
 
-    // cloca o template
+    // clona o template para criar uma nova instância
     const quizItem = template.content.cloneNode(true)
 
-    // troca os títulos das perguntas
+    // troca o título da pergunta no HTML com o texto da pergunta no array
     quizItem.querySelector('h3').textContent = item.pergunta
 
+    // loop para cada resposta no array
     for(let resposta of item.respostas ) {
+
+        // clona o elemento dt do template para criar uma nova instância
         const dt = quizItem.querySelector('dl dt').cloneNode(true)
+
+        // troca o texto da resposta no HTML com o texto da resposta no array
         dt.querySelector('span').textContent = resposta
 
+        // adiciona a instância do elemento dt ao elemento dl no HTML
         quizItem.querySelector('dl').appendChild(dt)
     }
 
+    // remove o elemento dt original do template (foi usado apenas como modelo)
     quizItem.querySelector('dl dt').remove()
 
-    // coloca a pergunta na tela
+    // adiciona a pergunta e suas respostas ao elemento HTML do quiz
     quiz.appendChild(quizItem)
 }
