@@ -133,6 +133,22 @@ for(const item of perguntas) {
         // troca o texto da resposta no HTML com o texto da resposta no array
         dt.querySelector('span').textContent = resposta
 
+        // adiciona index da pergunta nas opções de resposta para se referir apenas à pergunta em questão, não ao todo
+        dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item))
+
+        // adiciona value na resposta para poder verificar se é a correta
+        dt.querySelector('input').value = item.respostas.indexOf(resposta)
+
+        // função para monitorar mudança no input e executar
+        dt.querySelector('input').onchange = (event) => {
+
+            // compara se a resposta se parece com a resposta correta relacionando string e number
+            const verificaResposta = event.target.value == item.correta
+            alert(verificaResposta)
+        }
+
+
+
         // adiciona a instância do elemento dt ao elemento dl no HTML
         quizItem.querySelector('dl').appendChild(dt)
     }
