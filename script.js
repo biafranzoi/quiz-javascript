@@ -1,4 +1,4 @@
-// estrutura do array de perguntas
+// estrutura do array de perguntas para aliemntar o ChatGPT
 // const perguntas = [ //array 0
 //     {
 //         pergunta: "Pergunta 01",
