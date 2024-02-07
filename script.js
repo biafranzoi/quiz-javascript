@@ -115,6 +115,15 @@ const quiz = document.querySelector('#quiz')
 // elemento HTML que contém o template
 const template = document.querySelector('template')
 
+// conjunto para armazenar perguntas corretas
+const corretas = new Set()
+
+// número total de perguntas
+const totalPerguntas = perguntas.length
+
+// // elemento que exibe o total de perguntas corretas
+const mostrarTotal = document.querySelector('#acertos span')
+
 // loop ou laço de repetição para cada pergunta no array
 for(const item of perguntas) {
 
@@ -144,9 +153,18 @@ for(const item of perguntas) {
 
             // compara se a resposta se parece com a resposta correta relacionando string e number
             const verificaResposta = event.target.value == item.correta
-            alert(verificaResposta)
-        }
+            
+            // remove a pergunta do conjunto se não for correta
+            corretas.delete(item)
+            if(verificaResposta) {
+                // adiciona a pergunta ao conjunto se for correta
+                corretas.add(item)
+            }
 
+            // atualiza o elemento que exibe o total de perguntas corretas
+            mostrarTotal.textContent = corretas.size + ' de ' + totalPerguntas
+
+        }
 
 
         // adiciona a instância do elemento dt ao elemento dl no HTML
