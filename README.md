@@ -21,7 +21,7 @@ Esse projeto está sendo desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Estou desenvolvendo um quiz para testar conhecimentos técnicos sobre JavaScript, que mostra dez perguntas sobre o tema, permite escolher a resposta desejada e apresenta a quantidade de questões acertadas.
+Desenvolvi um quiz para testar conhecimentos técnicos sobre JavaScript, que mostra dez perguntas sobre o tema, permite escolher a resposta desejada e apresenta a quantidade de questões acertadas.
 
 <br>
 
